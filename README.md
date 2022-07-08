@@ -20,10 +20,7 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
   <img src="https://img.shields.io/github/followers/XavierFabregat?logo=github&style=for-the-badge&color=0891b2&labelColor=1c1917" />
 </a>
 
-### Skills
-<br />
-
-#### Languages: 
+### Languages: 
 <br />
 <p align="left">
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="36" height="36" alt="JavaScript" /></a>
@@ -33,14 +30,15 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 <a href="https://www.w3.org/TR/CSS/#css" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" width="36" height="36" alt="CSS3" /></a>
 </p>
 
-#### Frameworks: 
+### Frameworks: 
 <br />
 <p align="left">
 <a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg" width="36" height="36" alt="React" /></a>
+<a href="https://reactnative.dev/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/react-native-1.svg" width="36" height="36" alt="ReactNative" /></a>
 <a href="https://angular.io/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/angularjs-colored.svg" width="36" height="36" alt="Angular" /></a>
 </p>
 
-#### Tools: 
+### Tools: 
 <p align="left">
 <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tailwindcss-colored.svg" width="36" height="36" alt="TailwindCSS" /></a>
 <a href="https://redux.js.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/redux-colored.svg" width="36" height="36" alt="Redux" /></a>
@@ -48,15 +46,16 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 <a href="https://www.figma.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg" width="36" height="36" alt="Figma" /></a>
 </p>  
 
-#### Backend: 
+### Backend: 
 <br />
 <p align="left">
 <a href="https://nodejs.org/en/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nodejs-colored.svg" width="36" height="36" alt="NodeJS" /></a>
 <a href="https://expressjs.com/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/express-109.svg" width="36" height="36" alt="Express" /></a>
+<a href="https://koajs.com/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/koa-1.svg" width="36" height="36" alt="Koa" /></a>
 <a href="https://www.heroku.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/heroku-colored.svg" width="36" height="36" alt="Heroku" /></a>
 </p>
 
-#### Databases: 
+### Databases: 
 <br />
 <p align="left">
 <a href="https://aws.amazon.com/dynamodb/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/aws-dynamodb.svg" width="36" height="36" alt="DynamoDB" /></a>
@@ -64,7 +63,7 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 <a href="https://www.postgresql.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg" width="36" height="36" alt="PostgreSQL" /></a>
 </p>
 
-#### AWS:
+### AWS:
 <br />
 <a href="https://aws.amazon.com/dynamodb/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/aws-dynamodb.svg" width="36" height="36" alt="DynamoDB" /></a>
 <a href="https://aws.amazon.com/cognito/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/aws-cognito.svg" width="36" height="36" alt="Cognito" /></a>

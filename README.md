@@ -13,10 +13,12 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 *   🧠  I'm learning Next.js
 *   🤝  I'm open to collaborating on Full Stack Projects.
 <br/>
-<a href="https://www.twitter.com/XaviFabregat98" target="_blank" rel="noreferrer"><img
-                  src="https://img.shields.io/twitter/follow/XaviFabregat98?logo=twitter&style=for-the-badge&color=0891b2&labelColor=1c1917"
-                /></a><a href="https://www.github.com/XavierFabregat" target="_blank" rel="noreferrer"><img
-                  src="https://img.shields.io/github/followers/XavierFabregat?logo=github&style=for-the-badge&color=0891b2&labelColor=1c1917" /></a>
+<a href="https://www.twitter.com/XaviFabregat98" target="_blank" rel="noreferrer">
+  <img src="https://img.shields.io/twitter/follow/XaviFabregat98?logo=twitter&style=for-the-badge&color=0891b2&labelColor=1c1917"/>
+</a>
+<a href="https://www.github.com/XavierFabregat" target="_blank" rel="noreferrer">
+  <img src="https://img.shields.io/github/followers/XavierFabregat?logo=github&style=for-the-badge&color=0891b2&labelColor=1c1917" />
+</a>
 
 ### Skills
 <p align="left">

@@ -11,7 +11,7 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 *   ✉️  You can contact me at [xavi.fabregat.pous@gmail.com](mailto:xavi.fabregat.pous@gmail.com)
 *   🚀  I'm currently working on [Arctic Desert](http://articdesert.click)
 *   🧠  I'm learning Next.js
-*   🤝  I'm open to collaborating on Full Stack Projects.
+*   🤝  I'm open to collaborating on Full Stack projects, preferably in the JavaScript ecosystem.
 <br/>
 <a href="https://www.twitter.com/XaviFabregat98" target="_blank" rel="noreferrer">
   <img src="https://img.shields.io/twitter/follow/XaviFabregat98?logo=twitter&style=for-the-badge&color=0891b2&labelColor=1c1917"/>

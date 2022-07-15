@@ -4,7 +4,7 @@ Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-912
 Full Stack Developer
 --------------------
 
-I studied Physics in the university of Barcelona, but there I learned my love for programming, since then, I've been learning different programming languages, from Python, to JavaScript, Java, and Fortran. I thrive on challenges and love learning new things.
+I studied Physics in the university of Barcelona, but there I learned my love for programming, since then, I've been learning different programming languages, from Python, to JavaScript, C#, and Fortran. I thrive on challenges and love learning new things.
 
 *   🌍  I'm based in Barcelona
 *   🖥️  See my portfolio at [here.](http://xavifabregat.com)

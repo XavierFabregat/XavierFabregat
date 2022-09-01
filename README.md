@@ -7,7 +7,7 @@ Full Stack Developer
 I studied Physics in the university of Barcelona, but there I learned my love for programming, since then, I've been learning different programming languages, from Python, to JavaScript, C#, and Fortran. I thrive on challenges and love learning new things.
 
 *   🌍  I'm based in Barcelona
-*   🖥️  See my portfolio at [here.](http://xavifabregat.com)
+*   🖥️  See my portfolio [here.](http://xavifabregat.com)
 *   ✉️  You can contact me at [xavi.fabregat.pous@gmail.com](mailto:xavi.fabregat.pous@gmail.com)
 *   🚀  I'm currently working on [Arctic Desert](http://articdesert.click)
 *   🧠  I'm learning Next.js

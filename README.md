@@ -9,9 +9,8 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 *   🌍  I'm based in Barcelona
 *   🖥️  See my portfolio [here.](http://xavifabregat.com)
 *   ✉️  You can contact me at [xavi.fabregat.pous@gmail.com](mailto:xavi.fabregat.pous@gmail.com)
-*   🚀  I'm currently working on [Arctic Desert](http://articdesert.click)
 *   🧠  I'm learning Next.js
-*   🤝  I'm open to collaborating on Full Stack projects, preferably in the JavaScript ecosystem.
+*   🤝  I'm open to collaborating on Full Stack projects, preferably in the TypeScript ecosystem.
 <br/>
 <a href="https://www.twitter.com/XaviFabregat98" target="_blank" rel="noreferrer">
   <img src="https://img.shields.io/twitter/follow/XaviFabregat98?logo=twitter&style=for-the-badge&color=0891b2&labelColor=1c1917"/>

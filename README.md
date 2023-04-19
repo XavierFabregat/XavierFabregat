@@ -83,7 +83,9 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 <!--START_SECTION:waka-->
 
 ```text
-No activity tracked
+lir     0 secs          █████████▓░░░░░░░░░░░░░░░   38.10 %
+C       0 secs          ████████▒░░░░░░░░░░░░░░░░   33.33 %
+Other   0 secs          ███████░░░░░░░░░░░░░░░░░░   28.57 %
 ```
 
 <!--END_SECTION:waka-->

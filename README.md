@@ -82,11 +82,11 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 ## This week's Top Languages
 <!--START_SECTION:waka-->
 
-```text
-JavaScript   2 hrs 22 mins   ███████████████████████▓░   95.07 %
-CSS          5 mins          █░░░░░░░░░░░░░░░░░░░░░░░░   03.44 %
-Bash         2 mins          ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.47 %
-HTML         0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.01 %
+```txt
+JavaScript   1 hr 7 mins     ██████████████████████▓░░   90.15 %
+CSS          5 mins          █▓░░░░░░░░░░░░░░░░░░░░░░░   06.89 %
+Bash         2 mins          ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.93 %
+HTML         0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.03 %
 ```
 
 <!--END_SECTION:waka-->

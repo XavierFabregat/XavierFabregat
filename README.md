@@ -83,10 +83,9 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 <!--START_SECTION:waka-->
 
 ```txt
-Bash         13 mins         █████████████████░░░░░░░░   67.42 %
-JavaScript   6 mins          ████████░░░░░░░░░░░░░░░░░   31.90 %
-Other        0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.43 %
-Text         0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.25 %
+JavaScript   6 mins          ████████████████████████▓   98.44 %
+Text         0 secs          ▒░░░░░░░░░░░░░░░░░░░░░░░░   00.78 %
+Other        0 secs          ▒░░░░░░░░░░░░░░░░░░░░░░░░   00.78 %
 ```
 
 <!--END_SECTION:waka-->

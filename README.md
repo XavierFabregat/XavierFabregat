@@ -84,7 +84,7 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 
 ```txt
 TypeScript   5 hrs 41 mins   ███████████▒░░░░░░░░░░░░░   44.86 %
-Svelte       4 hrs 38 mins   █████████░░░░░░░░░░░░░░░░   36.55 %
+Svelte       4 hrs 38 mins   █████████░░░░░░░░░░░░░░░░   36.56 %
 JavaScript   2 hrs 17 mins   ████▓░░░░░░░░░░░░░░░░░░░░   18.12 %
 Rust         2 mins          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.35 %
 Bash         0 secs          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.09 %

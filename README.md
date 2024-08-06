@@ -83,7 +83,9 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 <!--START_SECTION:waka-->
 
 ```txt
-No activity tracked
+Svelte       2 hrs 45 mins   █████████████████████░░░░   83.99 %
+JavaScript   23 mins         ███░░░░░░░░░░░░░░░░░░░░░░   11.92 %
+TypeScript   8 mins          █░░░░░░░░░░░░░░░░░░░░░░░░   04.09 %
 ```
 
 <!--END_SECTION:waka-->

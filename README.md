@@ -83,11 +83,11 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 <!--START_SECTION:waka-->
 
 ```txt
-TypeScript   10 hrs 25 mins  ██████████████████████▒░░   89.37 %
-Svelte       38 mins         █▒░░░░░░░░░░░░░░░░░░░░░░░   05.53 %
-JavaScript   16 mins         ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.41 %
-C++          5 mins          ▒░░░░░░░░░░░░░░░░░░░░░░░░   00.82 %
-JSON         5 mins          ▒░░░░░░░░░░░░░░░░░░░░░░░░   00.80 %
+TypeScript   4 hrs 52 mins   ████████████████▒░░░░░░░░   65.69 %
+Svelte       1 hr 43 mins    █████▓░░░░░░░░░░░░░░░░░░░   23.32 %
+JavaScript   37 mins         ██░░░░░░░░░░░░░░░░░░░░░░░   08.44 %
+C++          5 mins          ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.29 %
+Other        2 mins          ░░░░░░░░░░░░░░░░░░░░░░░░░   00.45 %
 ```
 
 <!--END_SECTION:waka-->

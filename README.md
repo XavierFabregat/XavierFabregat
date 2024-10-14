@@ -9,7 +9,7 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 *   🌍  I'm based in Barcelona
 *   🖥️  See my portfolio [here.](http://xavifabregat.com)
 *   ✉️  You can contact me at [xavi.fabregat.pous@gmail.com](mailto:xavi.fabregat.pous@gmail.com)
-*   🧠  I'm learning Next.js
+*   🧠  I'm learning C/C++/Rust
 *   🤝  I'm open to collaborating on Full Stack projects, preferably in the TypeScript ecosystem.
 <br/>
 <a href="https://www.twitter.com/XaviFabregat98" target="_blank" rel="noreferrer">

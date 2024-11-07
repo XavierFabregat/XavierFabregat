@@ -83,7 +83,8 @@ I studied Physics in the university of Barcelona, but there I learned my love fo
 <!--START_SECTION:waka-->
 
 ```txt
-No activity tracked
+TypeScript   21 mins         █████████████████▓░░░░░░░   70.75 %
+JavaScript   8 mins          ███████▒░░░░░░░░░░░░░░░░░   29.25 %
 ```
 
 <!--END_SECTION:waka-->

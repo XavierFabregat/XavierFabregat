@@ -6,10 +6,10 @@
 
   ## Contact
 
-  - Portfolio: [me.xavifabregat.dev](http://me.xavifabregat.dev)
+  - Portfolio: [xavifabregat.dev](http://xavifabregat.dev)
   - Email: [xavi.fabregat.pous@gmail.com](mailto:xavi.fabregat.pous@gmail.com)
   - LinkedIn: [xavier-fabregat](https://www.linkedin.com/in/xavier-fabregat-0a198a231/)
-  - GitHub: [@XavierFabregat](https://www.github.com/XavierFabregat)
+  - GitHub: This one mate :D
 
   ## Core Technologies
 

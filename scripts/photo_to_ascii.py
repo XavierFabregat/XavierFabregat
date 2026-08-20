@@ -27,6 +27,21 @@ from PIL import Image, ImageFilter
 RAMP = "@%#*+=~:. "  # dense (dark) -> sparse (light)
 
 
+def s_curve(shade: np.ndarray, strength: float) -> np.ndarray:
+    """Push tones away from the middle of the ramp, toward both ends.
+
+    Gamma alone slides the whole image lighter or darker. This pivots around
+    mid-grey instead, so dark features go denser while skin goes sparser, which
+    is what reads as contrast once the image is only ten characters deep. The
+    curve is renormalised so 0 and 1 stay pinned at the ends of the ramp.
+    """
+    if strength <= 0:
+        return shade
+    curve = lambda x: 1.0 / (1.0 + np.exp(-strength * (x - 0.5)))
+    lo, hi = curve(0.0), curve(1.0)
+    return (curve(shade) - lo) / (hi - lo)
+
+
 def build_mask(rgb: np.ndarray, lum: np.ndarray, threshold: float) -> Image.Image:
     r, b = rgb[..., 0], rgb[..., 2]
     subject = np.maximum((r - b) / 255.0, (0.18 - lum) * 3.0)
@@ -86,7 +101,10 @@ def main() -> int:
     ap.add_argument("--crop", default=None, help="left,top,right,bottom in pixels")
     ap.add_argument("--threshold", type=float, default=0.05,
                     help="subject cutoff; raise to shed background, lower if the face gets holes")
-    ap.add_argument("--gamma", type=float, default=1.0)
+    ap.add_argument("--gamma", type=float, default=1.0,
+                    help="<1 lightens midtones, >1 darkens them")
+    ap.add_argument("--contrast", type=float, default=0.0,
+                    help="S-curve strength; 0 is linear, 4-6 is punchy, 10+ posterises")
     ap.add_argument("--aspect", type=float, default=0.5,
                     help="character cell height/width ratio")
     args = ap.parse_args()
@@ -99,12 +117,18 @@ def main() -> int:
     lum = (0.299 * rgb[..., 0] + 0.587 * rgb[..., 1] + 0.114 * rgb[..., 2]) / 255.0
     mask = build_mask(rgb, lum, args.threshold)
 
-    inside = lum[np.asarray(mask) > 127]
-    if inside.size == 0:
+    subject = np.asarray(mask) > 127
+    if not subject.any():
         print("no subject found; try a lower --threshold", file=sys.stderr)
         return 1
+    # Stretch across every subject pixel, clothing included. Anchoring on the
+    # head alone sounds better but inverts the result: skin then sits at the
+    # top of a narrower range and maps to the sparse end of the ramp, so the
+    # face washes out and only hair and sunglasses survive.
+    inside = lum[subject]
     lo, hi = np.percentile(inside, 2), np.percentile(inside, 98)
     shade = np.clip((lum - lo) / max(1e-6, hi - lo), 0, 1) ** args.gamma
+    shade = s_curve(shade, args.contrast)
 
     width = args.width
     height = max(1, round(width * img.height / img.width * args.aspect))

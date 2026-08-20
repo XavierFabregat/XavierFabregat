@@ -23,6 +23,7 @@ import subprocess
 import sys
 import urllib.error
 import urllib.request
+from calendar import monthrange
 from datetime import date
 from pathlib import Path
 
@@ -35,13 +36,13 @@ PANEL_WIDTH = 52
 GUTTER = 2
 
 # Set to a YYYY-MM-DD string to show an "Uptime" line; None hides it.
-BIRTHDAY = None
+BIRTHDAY = "1998-01-27"
 
 IDENTITY = [
     ("Status", "Running (stable)", "green"),
     ("OS", "Xavier Fabregat Pous", None),
     ("Host", "Barcelona, ES (local)", None),
-    ("Kernel", "Full Stack Developer", None),
+    ("Kernel", "Full Stack Developer @ Haddock (YC W22)", None),
     ("Background", "BSc Physics, Univ. de Barcelona", None),
     ("Shell", "zsh, Neovim, Ghostty", None),
     ("Languages.Programming", "TypeScript, Rust, SQL", None),
@@ -109,19 +110,32 @@ def section(title: str) -> str:
 def row(label: str, value: str, color: str | None = None) -> str:
     """`  Label: ......... value` with the value flush right."""
     left = f"  {label}:"
-    dots = "." * max(1, PANEL_WIDTH - len(left) - len(value) - 2)
+    slack = PANEL_WIDTH - len(left) - len(value) - 2
+    if slack < 1:
+        print(f"'{label}' overflows the panel by {1 - slack} chars; it will not "
+              "line up with the section rules", file=sys.stderr)
+    dots = "." * max(1, slack)
     return f"{paint(left, 'cyan')} {paint(dots, 'gray')} {paint(value, color)}"
 
 
 def uptime(birthday: str) -> str:
+    """Years, months and days, counted on the calendar rather than in 30-day
+    blocks, so the day figure agrees with what a person would count."""
     born = date.fromisoformat(birthday)
     today = date.today()
-    years = today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-    anniversary = date(today.year - (1 if (today.month, today.day) < (born.month, born.day) else 0),
-                       born.month, born.day)
+
+    months = (today.year - born.year) * 12 + today.month - born.month
+    if today.day < born.day:
+        months -= 1
+
+    # the most recent month-boundary anniversary, clamped for short months
+    anniversary_year = born.year + (born.month - 1 + months) // 12
+    anniversary_month = (born.month - 1 + months) % 12 + 1
+    last_day = monthrange(anniversary_year, anniversary_month)[1]
+    anniversary = date(anniversary_year, anniversary_month, min(born.day, last_day))
+
     days = (today - anniversary).days
-    months, days = days // 30, days % 30
-    return f"{years} years, {months} months, {days} days"
+    return f"{months // 12} years, {months % 12} months, {days} days"
 
 
 def gh_token() -> str | None:

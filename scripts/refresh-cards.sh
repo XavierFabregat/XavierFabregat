@@ -8,6 +8,11 @@
 # else. Fetching at build time means a bad response is simply discarded and the
 # previous good card stays in place.
 #
+# The generator also caches the image it fetches, keyed on URL, so replacing
+# assets/portrait.png is invisible until the `?v=` on the image URL in
+# assets/neofetch.json changes too. Run scripts/stamp-portrait.py after
+# regenerating the portrait and it will restamp that with the file's hash.
+#
 # Usage: scripts/refresh-cards.sh
 
 set -euo pipefail

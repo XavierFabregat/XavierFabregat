@@ -35,6 +35,15 @@ LOGIN = "XavierFabregat"
 PANEL_WIDTH = 52
 GUTTER = 2
 
+# Beyond this the block outgrows GitHub's README column and readers get a
+# horizontal scrollbar. The panel's values sit flush right, so they are exactly
+# what would be pushed out of sight; the layout stacks instead of overflowing.
+MAX_ROW_WIDTH = 120
+
+# Portrait colour. None inherits the reader's foreground, which holds the most
+# detail; "gray" recedes behind the panel, which suits a small portrait.
+PORTRAIT_COLOR = None
+
 # Set to a YYYY-MM-DD string to show an "Uptime" line; None hides it.
 BIRTHDAY = "1998-01-27"
 
@@ -284,20 +293,29 @@ def build_panel() -> list[str]:
 def compose() -> str:
     portrait = PORTRAIT.read_text().rstrip("\n").split("\n")
     art_width = max(len(line) for line in portrait)
-    left_column = (
-        [paint(line, "gray") if line.strip() else "" for line in portrait]
-        + [""]
-        + [centre_visible(swatch, art_width) for swatch in palette()]
-    )
+    drawn = [paint(line, PORTRAIT_COLOR) if line.strip() else "" for line in portrait]
     panel = build_panel()
+    side_by_side = art_width + GUTTER + PANEL_WIDTH <= MAX_ROW_WIDTH
 
-    body = []
-    for i in range(max(len(left_column), len(panel))):
-        left = left_column[i] if i < len(left_column) else ""
-        right = panel[i] if i < len(panel) else ""
-        # with nothing on the right there is nothing to align to, so skip the
-        # padding entirely rather than leave trailing spaces behind an escape
-        body.append(f"{pad_visible(left, art_width)}{' ' * GUTTER}{right}" if right else left)
+    # Beside the panel the swatches sit under the art and want centring; above
+    # it they read as a divider, so they line up with the panel's left edge.
+    swatches = [centre_visible(s, art_width) if side_by_side else s for s in palette()]
+    art = drawn + [""] + swatches
+
+    if side_by_side:
+        body = []
+        for i in range(max(len(art), len(panel))):
+            left = art[i] if i < len(art) else ""
+            right = panel[i] if i < len(panel) else ""
+            # with nothing on the right there is nothing to align to, so skip
+            # the padding rather than leave trailing spaces behind an escape
+            body.append(f"{pad_visible(left, art_width)}{' ' * GUTTER}{right}" if right else left)
+    else:
+        print(f"art is {art_width} wide; stacking the panel below it to stay "
+              f"within {MAX_ROW_WIDTH} columns", file=sys.stderr)
+        body = art + ["", ""] + panel
+
+    block = "\n".join(body)
 
     block = "\n".join(body)
     return (

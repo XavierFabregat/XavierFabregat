@@ -9,8 +9,15 @@ red-minus-blue approach: skin and clothing are red-dominant, sky and water are
 blue-dominant, dark neutrals like hair and sunglasses are rescued back in, and
 only the region connected to the head survives.
 
-    ./scripts/cutout.py ~/Desktop/headshot.webp --crop 100,20,400,400 \
+    ./scripts/cutout.py ~/Desktop/headshot.webp --crop 40,15,436,555 \
+        --threshold -0.15 --brightness 1.45 --saturation 1.35 \
         --out assets/portrait.png
+
+The threshold is negative on purpose. Backlit hair is blue-dominant, because
+sky shows through the strands: at the crown it measures r-b = -0.09 against
+skin at +0.10, so a threshold tuned for skin cuts the hair off. Sky and sea sit
+far lower still, around -0.22, which leaves a wide gap to aim at. The right
+edge of the crop is pulled in to shed a bush that the looser threshold admits.
 """
 
 import argparse

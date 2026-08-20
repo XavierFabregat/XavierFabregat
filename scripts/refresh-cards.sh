@@ -19,6 +19,11 @@ MIN_BYTES=5000
 
 cd "$(dirname "$0")/.."
 encoded=$(python3 -c 'import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1], safe=""))' "$CONFIG_URL")
+
+# The generator caches whatever it last fetched from the config URL, including
+# a failure, so a config edit is invisible without a changing parameter. This
+# is what the `v=` in the upstream examples is for.
+buster=$(date +%s)
 status=0
 
 for theme in dark light; do
@@ -28,7 +33,7 @@ for theme in dark light; do
 
   http=$(curl -sS --retry 3 --retry-delay 2 --max-time 45 \
     -o "$tmp" -w '%{http_code}' \
-    "${API}?username=${USERNAME}&theme=github-${theme}&config=${encoded}" || echo 000)
+    "${API}?username=${USERNAME}&theme=github-${theme}&config=${encoded}&v=${buster}" || echo 000)
 
   size=$(wc -c < "$tmp" | tr -d ' ')
 
@@ -48,6 +53,7 @@ for theme in dark light; do
     status=1
   else
     mv "$tmp" "$target"
+    chmod 644 "$target"   # mktemp creates 0600, which is not what we want committed
     echo "$theme: refreshed ($size bytes)"
   fi
 

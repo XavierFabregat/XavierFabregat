@@ -107,6 +107,8 @@ def main() -> int:
                     help="S-curve strength; 0 is linear, 4-6 is punchy, 10+ posterises")
     ap.add_argument("--aspect", type=float, default=0.5,
                     help="character cell height/width ratio")
+    ap.add_argument("--ramp", default=RAMP,
+                    help="characters from darkest to lightest")
     args = ap.parse_args()
 
     img = Image.open(args.image).convert("RGB")
@@ -150,10 +152,11 @@ def main() -> int:
         .resize((width, height), Image.LANCZOS)
     ).astype(np.float32) / 255.0
 
-    scale = len(RAMP) - 1
+    ramp = args.ramp
+    scale = len(ramp) - 1
     rows = [
         "".join(
-            RAMP[min(scale, max(0, round(shade_grid[y, x] * scale)))] if keep[y, x] else " "
+            ramp[min(scale, max(0, round(shade_grid[y, x] * scale)))] if keep[y, x] else " "
             for x in range(width)
         ).rstrip()
         for y in range(height)

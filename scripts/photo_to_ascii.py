@@ -115,6 +115,17 @@ def main() -> int:
 
     rgb = np.asarray(img).astype(np.float32)
     lum = (0.299 * rgb[..., 0] + 0.587 * rgb[..., 1] + 0.114 * rgb[..., 2]) / 255.0
+
+    # A greyscale photo has no red-minus-blue signal, so the mask collapses to
+    # the dark-neutral rescue term and the output is noise rather than a face.
+    # Fail here instead: it is not recoverable by tuning the flags.
+    chroma = np.abs(rgb[..., 0] - rgb[..., 2]).mean()
+    if chroma < 2.0:
+        print(f"{args.image} is greyscale (mean |r-b| = {chroma:.2f}); this converter "
+              "segments on colour and cannot separate the subject. Use a colour "
+              "original of the same shot.", file=sys.stderr)
+        return 1
+
     mask = build_mask(rgb, lum, args.threshold)
 
     subject = np.asarray(mask) > 127

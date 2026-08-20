@@ -1,0 +1,49 @@
+name: Refresh README
+
+# Re-renders README.md from scripts/render_readme.py so the GitHub and
+# Wakatime numbers in the ANSI panel stay current. This replaces the old
+# waka-readme workflow, which quietly did nothing: that action rewrites the
+# text between START_SECTION:waka markers, and the README has no markers.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 04:10 UTC daily, off the hour to avoid the scheduler's busiest minute
+    - cron: "10 4 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    name: Render and commit README
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check panel alignment
+        run: python scripts/test_render.py
+
+      - name: Render README
+        env:
+          # A PAT with read:user also counts private contributions; without one
+          # the default token still covers everything public.
+          GITHUB_TOKEN: ${{ secrets.README_TOKEN || github.token }}
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+        run: python scripts/render_readme.py
+
+      - name: Commit if the numbers moved
+        run: |
+          if [ -z "$(git status --porcelain README.md)" ]; then
+            echo "README unchanged; nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: refresh README stats"
+          git push

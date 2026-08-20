@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 """Render README.md: a neofetch-style panel next to the ASCII portrait.
 
-GitHub renders ANSI escape codes inside a fenced block tagged ``ansi``, which
-is the only way to get colour into a README without shipping an image.
-
-Only the 16 basic ANSI colours are used. GitHub maps those to its own theme
-palette, so the block stays legible in light and dark mode; 256-colour and
-24-bit codes are fixed RGB and would be unreadable in one theme or the other.
-Values are printed with no colour at all so they inherit the reader's
-foreground colour.
+GitHub does NOT interpret ANSI escape codes in markdown code blocks. A block
+fenced as ``ansi`` renders the escapes as literal text, verified on a live
+profile, so COLOUR must stay off for anything published here. The escape
+plumbing is kept because it is how the block is previewed in a terminal, and
+because the layout maths depends on measuring visible width separately from
+byte length either way.
 
 Usage:
     ./scripts/render_readme.py            # write README.md
@@ -72,6 +70,9 @@ CONTACT = [
     ("LinkedIn", "in/xavier-fabregat"),
 ]
 
+# Off for anything GitHub renders: it prints the escapes verbatim.
+COLOUR = False
+
 ESC = "\x1b["
 RESET = f"{ESC}0m"
 COLORS = {
@@ -87,7 +88,9 @@ COLORS = {
 
 
 def paint(text: str, color: str | None) -> str:
-    return f"{COLORS[color]}{text}{RESET}" if color else text
+    if not COLOUR or not color:
+        return text
+    return f"{COLORS[color]}{text}{RESET}"
 
 
 def visible_len(text: str) -> int:
@@ -255,9 +258,14 @@ def centre_visible(text: str, width: int) -> str:
 def palette() -> list[str]:
     """The colour swatches neofetch prints under its logo.
 
+    Nothing but solid blocks without colour, so they are dropped entirely
+    when COLOUR is off.
+
     Black and bright-black are skipped: GitHub maps them to a near-background
     colour, so they read as gaps in the strip rather than swatches.
     """
+    if not COLOUR:
+        return []
     return [
         "".join(f"{ESC}{code}m███{RESET}" for code in range(31, 38)),
         "".join(f"{ESC}{code}m███{RESET}" for code in range(91, 98)),
@@ -295,12 +303,13 @@ def compose() -> str:
     art_width = max(len(line) for line in portrait)
     drawn = [paint(line, PORTRAIT_COLOR) if line.strip() else "" for line in portrait]
     panel = build_panel()
+    swatch_rows = palette()
     side_by_side = art_width + GUTTER + PANEL_WIDTH <= MAX_ROW_WIDTH
 
     # Beside the panel the swatches sit under the art and want centring; above
     # it they read as a divider, so they line up with the panel's left edge.
-    swatches = [centre_visible(s, art_width) if side_by_side else s for s in palette()]
-    art = drawn + [""] + swatches
+    swatches = [centre_visible(s, art_width) if side_by_side else s for s in swatch_rows]
+    art = drawn + ([""] + swatches if swatches else [])
 
     if side_by_side:
         body = []
@@ -319,7 +328,7 @@ def compose() -> str:
 
     block = "\n".join(body)
     return (
-        "```ansi\n"
+        "```\n"
         f"{block}\n"
         "```\n"
         "\n"

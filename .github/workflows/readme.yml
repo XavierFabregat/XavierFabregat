@@ -1,9 +1,9 @@
-name: Refresh README
+name: Refresh profile cards
 
-# Re-renders README.md from scripts/render_readme.py so the GitHub and
-# Wakatime numbers in the ANSI panel stay current. This replaces the old
-# waka-readme workflow, which quietly did nothing: that action rewrites the
-# text between START_SECTION:waka markers, and the README has no markers.
+# Regenerates the committed neofetch cards so their stats stay current. The
+# cards are committed rather than hot-linked: a `<picture>` cannot fail over
+# between URLs, so pointing at a live endpoint means an outage shows a broken
+# image. Fetching here keeps the last good card in place instead.
 
 on:
   workflow_dispatch:
@@ -15,35 +15,34 @@ permissions:
   contents: write
 
 jobs:
-  render:
-    name: Render and commit README
+  refresh:
+    name: Refresh and commit cards
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      # Allowed to fail: the script discards bad responses and leaves the good
+      # cards alone, so a bad day upstream must not stop the commit step from
+      # running - but the job should still end red so the failure is visible.
+      - name: Refresh cards
+        id: refresh
+        continue-on-error: true
+        run: scripts/refresh-cards.sh
 
-      - name: Check panel alignment
-        run: python scripts/test_render.py
-
-      - name: Render README
-        env:
-          # A PAT with read:user also counts private contributions; without one
-          # the default token still covers everything public.
-          GITHUB_TOKEN: ${{ secrets.README_TOKEN || github.token }}
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-        run: python scripts/render_readme.py
-
-      - name: Commit if the numbers moved
+      - name: Commit if the cards changed
         run: |
-          if [ -z "$(git status --porcelain README.md)" ]; then
-            echo "README unchanged; nothing to commit"
+          if [ -z "$(git status --porcelain assets)" ]; then
+            echo "cards unchanged; nothing to commit"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "chore: refresh README stats"
+          git add assets
+          git commit -m "chore: refresh profile cards"
           git push
+
+      - name: Report an upstream failure
+        if: steps.refresh.outcome == 'failure'
+        run: |
+          echo "::warning::The card generator did not return a usable card for at least one theme. The committed cards were left in place."
+          exit 1

@@ -1,7 +1,7 @@
 {
   "coloredImage": true,
-  "removeBackground": true,
-  "imageScale": 1,
+  "removeBackground": false,
+  "imageScale": 1.15,
   "sections": [
     {
       "title": "{{username}}@github",
@@ -122,5 +122,6 @@
       },
       "loc"
     ]
-  }
+  },
+  "image": "https://raw.githubusercontent.com/XavierFabregat/XavierFabregat/main/assets/portrait.png"
 }

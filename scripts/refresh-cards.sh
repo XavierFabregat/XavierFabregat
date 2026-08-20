@@ -8,17 +8,20 @@
 # else. Fetching at build time means a bad response is simply discarded and the
 # previous good card stays in place.
 #
-# The generator also caches the image it fetches, keyed on URL, so replacing
-# assets/portrait.png is invisible until the `?v=` on the image URL in
-# assets/neofetch.json changes too. Run scripts/stamp-portrait.py after
-# regenerating the portrait and it will restamp that with the file's hash.
+# The image URL inside the config is pinned the same way, by
+# scripts/stamp-portrait.py. Run that after committing a new portrait, or the
+# generator serves the previous one from its own image cache.
 #
 # Usage: scripts/refresh-cards.sh
 
 set -euo pipefail
 
 USERNAME="XavierFabregat"
-CONFIG_URL="https://raw.githubusercontent.com/${USERNAME}/${USERNAME}/main/assets/neofetch.json"
+# Pinned to the current commit rather than to main. raw.githubusercontent caches
+# branch paths for minutes, so a branch URL serves the previous config and the
+# card silently rebuilds from stale content; a commit URL is immutable.
+SHA=$(git rev-parse HEAD)
+CONFIG_URL="https://raw.githubusercontent.com/${USERNAME}/${USERNAME}/${SHA}/assets/neofetch.json"
 API="https://neofetch-profile.vercel.app/api"
 MIN_BYTES=5000
 

@@ -18,7 +18,7 @@ import sys
 from collections import deque
 
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image, ImageEnhance, ImageFilter
 
 
 def build_mask(rgb: np.ndarray, lum: np.ndarray, threshold: float) -> Image.Image:
@@ -61,6 +61,10 @@ def main() -> int:
     ap.add_argument("--threshold", type=float, default=0.05)
     ap.add_argument("--feather", type=float, default=1.2,
                     help="blur radius on the mask edge, in pixels")
+    ap.add_argument("--brightness", type=float, default=1.0,
+                    help="the card draws each character in its source pixel's colour, so "
+                         "skin tones read as muddy on a dark card; lift them here")
+    ap.add_argument("--saturation", type=float, default=1.0)
     args = ap.parse_args()
 
     img = Image.open(args.image).convert("RGB")
@@ -83,6 +87,10 @@ def main() -> int:
         alpha = alpha.filter(ImageFilter.GaussianBlur(args.feather))
 
     out = img.copy()
+    if args.brightness != 1.0:
+        out = ImageEnhance.Brightness(out).enhance(args.brightness)
+    if args.saturation != 1.0:
+        out = ImageEnhance.Color(out).enhance(args.saturation)
     out.putalpha(alpha)
     out.save(args.out, "PNG", optimize=True)
 

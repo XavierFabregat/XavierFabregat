@@ -227,7 +227,9 @@ def wakatime_bars(limit: int = 4, bar_width: int = 14) -> list[str] | None:
         name = lang["name"][:14]
         text = lang.get("text", "")
         left = f"  {name:<14} {paint(bar, 'magenta')}"
-        pad = " " * max(1, PANEL_WIDTH - visible_len(left) - len(text) - 1)
+        # no -1 here: unlike row(), nothing is appended after the value, so the
+        # padding is the only thing between the bar and the panel's right edge
+        pad = " " * max(1, PANEL_WIDTH - visible_len(left) - len(text))
         lines.append(f"{left}{pad}{text}")
     return lines
 

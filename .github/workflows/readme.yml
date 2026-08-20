@@ -25,6 +25,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Check panel alignment
+        run: python scripts/test_render.py
+
       - name: Render README
         env:
           # A PAT with read:user also counts private contributions; without one

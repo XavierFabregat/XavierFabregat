@@ -46,7 +46,7 @@ text, tspan { white-space: pre; }
 <tspan x="390" y="50" class="cc">. </tspan><tspan class="key">Status</tspan>:<tspan class="cc"> ................................. </tspan><tspan class="value">Running (stable)</tspan>
 <tspan x="390" y="70" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> ................................. </tspan><tspan class="value">Xavier Fabregat Pous</tspan>
 <tspan x="390" y="90" class="cc">. </tspan><tspan class="key">Host</tspan>:<tspan class="cc"> .............................. </tspan><tspan class="value">Barcelona, ES (local)</tspan>
-<tspan x="390" y="110" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc"> ....................... </tspan><tspan class="value">4 years, 5 months, 12 days</tspan>
+<tspan x="390" y="110" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc"> ....................... </tspan><tspan class="value">4 years, 5 months, 13 days</tspan>
 <tspan x="390" y="130" class="cc">. </tspan><tspan class="key">Kernel</tspan>:<tspan class="cc"> .......... </tspan><tspan class="value">Full Stack Developer @ Haddock (YC W22)</tspan>
 <tspan x="390" y="150" class="cc">. </tspan><tspan class="key">Background</tspan>:<tspan class="cc"> .............. </tspan><tspan class="value">BSc Physics, Univ. de Barcelona</tspan>
 <tspan x="390" y="170" class="cc">. </tspan><tspan class="key">Shell</tspan>:<tspan class="cc"> .............................. </tspan><tspan class="value">zsh, Neovim, Ghostty</tspan>
@@ -66,9 +66,9 @@ text, tspan { white-space: pre; }
 <tspan x="390" y="450" class="cc">. </tspan><tspan class="key">LinkedIn</tspan>:<tspan class="cc"> ............................. </tspan><tspan class="value">in/xavier-fabregat</tspan>
 <tspan x="390" y="470" class="cc">. </tspan>
 <tspan x="390" y="490">- GitHub Stats</tspan><tspan> -—————————————————————————————————————————-—-</tspan>
-<tspan x="390" y="510" class="cc">. </tspan><tspan class="key">Repos</tspan>:<tspan class="cc"> ....................... </tspan><tspan class="value">70</tspan> | <tspan class="key">Stars</tspan>:<tspan class="cc"> ............ </tspan><tspan class="value">11</tspan>
+<tspan x="390" y="510" class="cc">. </tspan><tspan class="key">Repos</tspan>:<tspan class="cc"> ....................... </tspan><tspan class="value">71</tspan> | <tspan class="key">Stars</tspan>:<tspan class="cc"> ............ </tspan><tspan class="value">11</tspan>
 <tspan x="390" y="530" class="cc">. </tspan><tspan class="key">Followers</tspan>:<tspan class="cc"> ................... </tspan><tspan class="value">36</tspan> | <tspan class="key">Following</tspan>:<tspan class="cc"> ........ </tspan><tspan class="value">28</tspan>
-<tspan x="390" y="550" class="cc">. </tspan><tspan class="key">Commits</tspan>:<tspan class="cc"> .................. </tspan><tspan class="value">3,500</tspan> | <tspan class="key">Pull Requests</tspan>:<tspan class="cc"> .... </tspan><tspan class="value">65</tspan>
-<tspan x="390" y="570" class="cc">. </tspan><tspan class="key">Lines of Code</tspan>:<tspan class="cc"> .......... </tspan><tspan class="value">141,100</tspan> ( <tspan class="addColor">169,320</tspan><tspan class="addColor">++</tspan>,  <tspan class="delColor">28,220</tspan><tspan class="delColor">--</tspan> )
+<tspan x="390" y="550" class="cc">. </tspan><tspan class="key">Commits</tspan>:<tspan class="cc"> .................. </tspan><tspan class="value">3,550</tspan> | <tspan class="key">Pull Requests</tspan>:<tspan class="cc"> .... </tspan><tspan class="value">65</tspan>
+<tspan x="390" y="570" class="cc">. </tspan><tspan class="key">Lines of Code</tspan>:<tspan class="cc"> .......... </tspan><tspan class="value">143,100</tspan> ( <tspan class="addColor">171,720</tspan><tspan class="addColor">++</tspan>,  <tspan class="delColor">28,620</tspan><tspan class="delColor">--</tspan> )
 </text>
 </svg>
